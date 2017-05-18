@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <ul id="news">
+        <li>ewqerwetdsgdhbvnnvn</li>
+        <li>kjhg4334dhyu42341</li>
+        <li>4355756bfvhngj</li>
+    </ul>
+    <button id="btn">换一组</button>
+</div>
+<script>
+    var btn = document.querySelector('#btn')
+    var news = document.querySelector('#news')
+    btn.addEventListener('click',function(){
+      var script = document.createElement('script')
+      script.src = 'http://b.lck.com:8080/change'
+      document.body.appendChild(script)
+      document.body.removeChild(script)
+    })
+    function appendHtml(data) {
+      news.innerHTML = ''
+      for (var i = 0; i < 3; i++) {
+        var li = document.createElement('li')
+        li.innerText = data[i]
+        news.appendChild(li)
+      }
+    }
+
+//ajax收发数据
+//    btn.addEventListener('click',function(){
+//      var xhr = new XMLHttpRequest();
+//      xhr.onreadystatechange = function (){
+//        if(xhr.readyState ===4){
+//          if(xhr.status === 200||xhr.status ===304){
+//            var result = JSON.parse(xhr.responseText)
+//            console.log(result)
+//            news.innerHTML = ''
+//            for(var i =0;i<3;i++){
+//              var li =document.createElement('li')
+//              li.innerText = result[i]
+//              news.appendChild(li)
+//            }
+//          }
+//        }
+//      }
+//      xhr.open('get','http://b.lck.com:8080/change',true)
+//      xhr.send()
+//    })
+</script>
+</body>
+</html>
